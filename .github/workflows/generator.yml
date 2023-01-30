@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-    environment: Actions
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -20,6 +19,7 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
+        node-version: '14'
     - name: Install requirements
       run: |
         pip install -r requirements.txt
@@ -32,7 +32,8 @@ jobs:
     - name: Commit & Push
       uses: action-x/commit@v2.9
       with:
-        github-token: ${{ secrets.GH_TOKEN }}
+        node-version: '14'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'output'
         commit-message: 'Generate Json'
         force-push: 'true'
