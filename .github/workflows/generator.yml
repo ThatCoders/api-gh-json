@@ -26,8 +26,8 @@ jobs:
       run: |
         python generator/v2.py
     - run: |
-        git config user.name github-actions[bot]
-        git config user.email github-actions[bot]@users.noreply.github.com
+        git config user.name ThatCoders
+        git config user.email nepenthic@163.com
     - name: Commit & Push
       uses: action-x/commit@v2.9
       with:
@@ -35,5 +35,5 @@ jobs:
         push-branch: 'output'
         commit-message: 'Generate Json'
         force-push: 'true'
-        name: github-actions[bot]
-        email: github-actions[bot]@users.noreply.github.com
+        name: ThatCoders
+        email: nepenthic@163.com
