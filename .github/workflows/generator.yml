@@ -8,6 +8,10 @@ on:
     types: [started]
   schedule:
     - cron: '0 * * * *'
+env:
+  GITHUB_NAME: ${{ secrets.GH_NAME }} # 你的github昵称
+  GITHUB_EMAIL: ${{ secrets.GH_EMAIL }} # 你的github邮箱
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # github token
 
 jobs:
   build:
@@ -15,27 +19,34 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
+      
     - name: Set up Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@main
       with:
         python-version: 3.8
-        node-version: '14'
+        
     - name: Install requirements
       run: |
         pip install -r requirements.txt
+        
     - name: Run Generator
       run: |
         python generator/v2.py
+    
     - run: |
-        git config user.name ThatCoders
-        git config user.email nepenthic@163.com
+        git config user.name github-actions[bot]
+        git config user.email github-actions@noreply.github.com
+        
     - name: Commit & Push
-      uses: action-x/commit@v2.9
+      uses: github-actions-x/commit@v2.9
       with:
-        node-version: '14'
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'output'
+        # push-branch: 'output'
         commit-message: 'Generate Json'
-        force-push: 'true'
-        name: ThatCoders
-        email: nepenthic@163.com
+        # force-push: 'true'
+        rebase: 'true'
+        name: github-actions[bot]
+        email: github-actions@noreply.github.com
+        
+    - name: keep alive
+      uses: gautamkrishnar/keepalive-workflow@master # keep workflows from being suspended when no commit for a long time
