@@ -43,7 +43,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'output'
         commit-message: 'Generate Json'
-        # force-push: 'true'
+        force-push: 'true'
         rebase: 'true'
         name: github-actions[bot]
         email: github-actions@noreply.github.com
