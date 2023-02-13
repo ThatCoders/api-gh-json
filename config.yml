@@ -7,6 +7,9 @@ links:
   - https://api.github.com/repos/ThatCoders/thatcoders.github.io/issues?labels=Cheers
   # 抓取网站动态申请
   - https://api.github.com/repos/ThatCoders/thatcoders.github.io/issues?labels=Chat
+  
+  # 抓取网易前30条动态
+  - https://netease.thatapi.cn/user/event?uid=134968139&limit=30
   ######## Stellar ########
   # Stellar 最近更新日志（10条记录）
   
