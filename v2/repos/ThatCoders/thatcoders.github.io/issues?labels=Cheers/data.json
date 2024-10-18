@@ -28,6 +28,7 @@
       "events_url": "https://api.github.com/users/ThatCoders/events{/privacy}",
       "received_events_url": "https://api.github.com/users/ThatCoders/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "labels": [
@@ -71,6 +72,7 @@
       "events_url": "https://api.github.com/users/ThatCoders/events{/privacy}",
       "received_events_url": "https://api.github.com/users/ThatCoders/received_events",
       "type": "User",
+      "user_view_type": "public",
       "site_admin": false
     },
     "reactions": {
